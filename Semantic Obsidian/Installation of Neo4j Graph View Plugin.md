@@ -1,0 +1,80 @@
+The general steps to install the plugin are as follows:
+1. Make sure you have [[Python]] 3.6+ installed. See [[#Install Python]].
+2. Make sure you have [[Neo4j Desktop]] installed. See [[#Install Neo4j Desktop]].
+3. Create a new database in Neo4j desktop and start it. See [[#Creating a Neo4j database]].
+5. Install the [[Obsidian]] plugin. See [[#Installing the Obsidian plugin]]
+6. In the settings of the plugin, enter the password. Then run the restart command. See [[#Configuring the Obsidian plugin]].
+
+If you are still running into problems after thorougly following these steps, 
+
+## Install Python
+Make sure you've installed [Python 3.6+](https://www.python.org/downloads/) as your system Python 3. If you think you might already have it, run `python3 -V` in the terminal, which should return the Python version.
+
+Also make sure to add Python to PATH, especially on [[Windows]]! During the installation, enable the 'Add Python 3.x to PATH' to ensure this happens.
+
+![](https://docs.python.org/3/_images/win_installer.png)
+
+[[Linux]] might already have Python installed by default. If a version lower than 3.6 is installed, update Python. Run `python3 -V` in the terminal to find out what version you have installed. 
+
+### Possible problems
+I've had some reports that the plugin doesn't work if Python's package manager is outdated. This can be fixed by running `pip3 install --upgrade pip` in the terminal. It's tested on pip 20.3.1. 
+
+## Install Neo4j Desktop
+Download [Neo4j desktop](https://neo4j.com/download/). Neo4j wants you to fill a form before giving you the link. Save the Desktop Activation Key they provide for later. The download can take a while because it's a pretty big file and the servers aren't very quick. 
+
+Installation of Neo4j desktop is pretty straightforward. You have to input the key Neo4j gave you after registration. There's an [installation video](https://www.youtube.com/watch?v=pPhJi9twN9Q&feature=emb_title) if you need more help. 
+
+## Creating a Neo4j database
+In a Project in Neo4j Desktop, click "+ Add Database" under projects:
+![[Pasted image 20201231174344.png|300]]
+
+Then select "Create a Local Database". Next follows this screen: 
+
+![[Pasted image 20201231174425.png|300]]
+
+You have to set a password here. We're also going to use it in the plugin. Make sure not to choose a sensitive password here! [[Neo4j Graph View Plugin]] doesn't store passwords encrypted. 
+You can choose any name. For the Neo4j version, I have tested on 4.2.0, but it should not matter much. 
+
+It'll create your database! Then, click the "Start" button. Note that you have to start your database every time whenever your computer reboots: It needs to remain active while you use the plugin. 
+
+### Possible problems
+Every now and then, the Graph database fails to start.
+- Sometimes, it just says it 'timed out'. Retrying it a few times may help.
+- Port in use: It's unlikely the port is actually in use. Restart Neo4j desktop and try again. It's currently not possible to set a port different than the default port (request on [[Github]] if needed).
+- "Could not change the password": This has been reported with a [[Windows]] user. See [this post](https://stackoverflow.com/questions/49342422/neo4j-database-failed-to-create-error-could-not-change-password) for possible guidance.
+
+## Installing the Obsidian plugin
+Time to install the plugin! The process is just like other Third-party plugins. If you've never installed a plugin before, here's a tutorial:
+
+1. Open the Obsidian settings, and go to Third-party plugins. Disable the "Safe mode" toggle, then click "Turn off safe mode" to confirm this. 
+2. Now, more options appear. Click on the "Browse" button
+3. In the search bar, type "neo4j" and click on Neo4j Graph View
+4. Click on "Install"
+5. Close the current screen. In the Third-party plugins settings, enable Neo4j graph view. 
+6. It should look like this:
+
+![[Pasted image 20201231175530.png]]
+
+
+## Configuring the Obsidian plugin
+We need to do one more thing before we can get playing with the plugin: Setting the password. 
+1. Go to the [[Neo4j Graph View settings]], which has appeared under Plugin options in the [[Obsidian]] settings. 
+2. In the password field, input the password you set during [[#Creating a Neo4j database]].  ![[Pasted image 20201231180930.png]]
+3. Close the settings view.
+4. Run the Obsidian command: "Neo4j Graph View: Restart Neo4j stream". You can run a command by using ctrl/cmd + p. ![[Pasted image 20201231181003.png]]
+5. The plugin is succesfully installed if the following notice appears in the top-right corner: ![[Pasted image 20201231181103.png|300]] (note: for some reason, it doesn't always appear even though the server did properly start...)
+
+If a different notice appears, something went wrong. Let's try to figure out what!
+## Troubleshooting
+If a notice appears that doesn't say the Neo4j stream is online, something went wrong. Two simple notices are
+- "Please provide a password in the Neo4j Graph View settings": This means your user credentials weren't accepted by the Neo4j database. Check if the password is set correctly during [[#Configuring the Obsidian plugin]].
+- "No connection to Neo4j database. Please start Neo4j Database in Neo4j Desktop": This means there's no connection to a Neo4j database on port 7687. Check Neo4j desktop if the database is online.
+
+The third notice is scariest: "Error during initialization of the Neo4j stream. Check the console for crash report.". Here are some steps to help figure out how to resolve this:
+1. Enable "Debug" mode in the Neo4j Graph View settings ![[Pasted image 20201231181917.png]]
+2. Open the Developer Tools. This option is under the View menu. If the View menu doesn't show, the keyboard shortcut to open it is ctrl+shift+i on windows and option+cmd+i on mac.
+3. Look at the error in the Console. 
+
+If the error is related to `pip3`, or `smdc` not being found, there's likely something wrong with your Python installation. See [[#Install Python]] for a bit of guidance. 
+Otherwise, it's likely that there's some bug in the plugin in that it cannot handle something that's present in your vault. Please submit the error reported on [[Github]]. 
+You can also contact [[Emile van Krieken|me]] on Twitter, Github or Discord if you need help. 
