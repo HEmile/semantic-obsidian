@@ -1,3 +1,8 @@
+---
+aliases: [installation, install]
+---
+
+
 The general steps to install the plugin are as follows:
 1. Make sure you have [[Python]] 3.6+ installed. See [[#Install Python]].
 2. Make sure you have [[Neo4j Desktop]] installed. See [[#Install Neo4j Desktop]].
@@ -18,6 +23,8 @@ Also make sure to add Python to PATH, especially on [[Windows]]! During the inst
 
 ### Possible problems
 I've had some reports that the plugin doesn't work if Python's package manager is outdated. This can be fixed by running `pip3 install --upgrade pip` in the terminal. It's tested on pip 20.3.1. 
+
+On [[Mac]], some people got `xcrun: error: invalid active developer path...  missing xcrun at...`: [Install xcrun)](https://apple.stackexchange.com/questions/254380/why-am-i-getting-an-invalid-active-developer-path-when-attempting-to-use-git-a) in terminal using `xcode-select --install` 
 
 ## Install Neo4j Desktop
 Download [Neo4j desktop](https://neo4j.com/download/). Neo4j wants you to fill a form before giving you the link. Save the Desktop Activation Key they provide for later. The download can take a while because it's a pretty big file and the servers aren't very quick. 
@@ -77,4 +84,9 @@ The third notice is scariest: "Error during initialization of the Neo4j stream. 
 
 If the error is related to `pip3`, or `smdc` not being found, there's likely something wrong with your Python installation. See [[#Install Python]] for a bit of guidance. 
 Otherwise, it's likely that there's some bug in the plugin in that it cannot handle something that's present in your vault. Please submit the error reported on [[Github]]. 
-You can also contact [[Emile van Krieken|me]] on Twitter, Github or Discord if you need help. 
+You can also contact [[Emile van Krieken|me]] on Twitter, Github or [[Discord]] if you need help. 
+
+--- 
+#howto
+- hasTopic [[Neo4j Graph View]]
+- author [[Emile van Krieken]]
