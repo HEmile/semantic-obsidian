@@ -6,7 +6,7 @@ Adds a much more customizable and interactable [[Neo4j Graph View|graph view]] t
 - Selectively expand and hide parts of the graph
 - View images within the graph
 - Execute advanced queries using [[Cypher]]
-- [[Typed links]] 
+- [[Link Types]] 
 - Optional [[Hierarchical layout]]
 
 

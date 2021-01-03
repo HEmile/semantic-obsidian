@@ -11,7 +11,7 @@ aliases: []
 - The content of the note (everything except YAML frontmatter and typed links) is stored in the property `content`
 - Links to notes that do not exist yet are created without any types.
 
-This uses a very simple syntax for typed links. There is no agreed-upon [[Markdown]] syntax for this as of yet. See [[Typed links]] for a discussion on different formalizations.
+This uses a very simple syntax for typed links. There is no agreed-upon [[Markdown]] syntax for this as of yet. See [[Link Types]] for a discussion on different formalizations.
 
 
 --- 

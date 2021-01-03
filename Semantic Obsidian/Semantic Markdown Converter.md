@@ -2,8 +2,10 @@
 aliases: []
 ---
 
-## Python code: Semantic Markdown to Neo4j
-The [[Neo4j Graph View Plugin]] uses the Python package `semantic-markdown-converter`, which is also in this repo. 
+This article is about the [[Python]] code that the [[Neo4j Graph View Plugin]] uses. In the near future, this code will be replaced with [[Javascript]]. See [[Roadmap#Port semantic markdown convert to Javascript]].
+
+## Semantic Markdown to Neo4j
+The [[Neo4j Graph View Plugin]] uses the Python package `semantic-markdown-converter`.  The code is [in the same repository](https://github.com/HEmile/semantic-markdown-converter/tree/main/smdc).
 It creates an active data stream from a folder of Markdown notes to a Neo4j database. 
 
 ### Getting started
@@ -28,7 +30,7 @@ The command `smds` first uploads the complete folder of notes into the active Ne
 - `--index_content`: Set to true if you want Neo4j Bloom to search through the content of your notes when using the search bar. Can impact performance.
 
 ### Conversion mode
-The command `smdc` only converts 
+The command `smdc` only converts the input folder, but does not create a stream. 
 #### Neo4j
 Streams the input into the currently active Neo4j database. WARNING: This clears all the data in your database by default! Run with `--retaindb` if this is not desired. 
 1. Start the database in Neo4j you want to use

@@ -10,7 +10,9 @@ The general steps to install the plugin are as follows:
 5. Install the [[Obsidian]] plugin. See [[#Installing the Obsidian plugin]]
 6. In the settings of the plugin, enter the password. Then run the restart command. See [[#Configuring the Obsidian plugin]].
 
-If you are still running into problems after thorougly following these steps, 
+If you are still running into problems after thorougly following these steps, see the [[#Troubleshooting]] section. 
+
+The next goal of the plugin (see [[Roadmap]]) is to remove the [[Python]] installation. This should make installation much more accessible. If you are not very technical and the installation of Python is failing, you can wait until this dependency is removed. The goal is to have this done before mid-end January 2021. 
 
 ## Install Python
 Make sure you've installed [Python 3.6+](https://www.python.org/downloads/) as your system Python 3. If you think you might already have it, run `python3 -V` in the terminal, which should return the Python version.
@@ -22,7 +24,7 @@ Also make sure to add Python to PATH, especially on [[Windows]]! During the inst
 [[Linux]] might already have Python installed by default. If a version lower than 3.6 is installed, update Python. Run `python3 -V` in the terminal to find out what version you have installed. 
 
 ### Possible problems
-I've had some reports that the plugin doesn't work if Python's package manager is outdated. This can be fixed by running `pip3 install --upgrade pip` in the terminal. It's tested on pip 20.3.1. 
+For plugin versions under 0.2.5, the plugin doesn't work if Python's package manager "pip" is outdated. Please update to plugin version 0.2.5, as it updates pip for you. 
 
 On [[Mac]], some people got `xcrun: error: invalid active developer path...  missing xcrun at...`: [Install xcrun)](https://apple.stackexchange.com/questions/254380/why-am-i-getting-an-invalid-active-developer-path-when-attempting-to-use-git-a) in terminal using `xcode-select --install` 
 

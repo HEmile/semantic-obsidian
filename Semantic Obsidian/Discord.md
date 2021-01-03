@@ -15,10 +15,10 @@ Current goals of the server:
 	- Feature requests and discussion
 - Discuss ideas related to [[Semantic Obsidian]]
 	- [[Obsidian]] plugin ideas
-	- [[Typed links]] formalizations
+	- [[Link Types]] formalizations
 	- Provide a space to collaborate on plugins
 
 --- 
-#topic
+#development
 - hasTopic [[Semantic Obsidian]]
 - author [[Emile van Krieken]]
